@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Aloja
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header>Detalles</ion-header>
+  <ion-button color="light" routerLink="/home" routerDirection="back">
+    Atras
+  </ion-button>
+  <ion-item-divider/>
+  <form [formGroup]="detallesForm" (ngSubmit)="onSubmit()">
+    <ion-header>Hotel</ion-header>
+    <ion-item-divider/>
+    <ion-img src="assets/habitacion.jpg" style="width:30%"/>
+    <ion-item-divider/>
+    <ion-text>
+      Lujoso Hotel 5 estrellas con habitaciones super comodas.
+    </ion-text>
+    <ion-item-divider/>
+    <ion-text>
+      Precio por noche: $80.000
+    </ion-text>
+    <ion-button color="light" expand="full" type="submit">
+      Reservar
+    </ion-button>
+  </form>
+</ion-content>

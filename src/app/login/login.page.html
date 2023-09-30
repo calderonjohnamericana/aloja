@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Aloja</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">
+          Direccion de correo
+        </ion-label>
+        <ion-input formControlName="userEmail" type="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *nglf="invalidField('userEmail')">
+        <ion-label text-wrap color="danger">
+          {{ getErrorMessage('userEmail') }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item *nglf="invalidField('userPassword')">
+        <ion-label text-wrap color="danger">
+          {{ getErrorMessage('userPassword') }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">
+          Contraseña
+        </ion-label>
+        <ion-input formControlName="userPassword" type="password">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button color="light" expand="full" type="submit">
+      Entrar
+    </ion-button>
+  </form>
+</ion-content>
+

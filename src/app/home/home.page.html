@@ -1,20 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Aloja
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-header>Buscar Destinos</ion-header>
+  <ion-button color="light" routerLink="/login" routerDirection="back">
+    Salir
+  </ion-button>
+  <form [formGroup]="destinosForm">
+    <ion-label>Ciudades</ion-label>
+    <ion-select ok-text="Seleccionar" cancel-text="Cancelar" formControlName="destinos">
+      <ion-select-option *ngFor="let destino of destinos" value="{{destino.ciudad}}">{{destino.ciudad}}</ion-select-option>
+    </ion-select>
+  
+    <ion-list>
+      <ion-item (click)="verDetalles()" *ngFor="let destino of destinos; index as i; trackBy: trackByFn">
+        {{destino.alojamientos[0].titulo}}
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
